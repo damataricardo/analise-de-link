@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	<div id="conteudo-site">
+	
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			 $.ajax({
+				 url: 'analise_filial.php'
+				,type:'GET'
+				,dataType: 'html'				
+				,beforeSend: function(){
+					$('#conteudo-site').html('<center><img src="load.gif" alt="some text" width=600 height=300></center>');				 
+				}
+				,success: function(resposta){
+					$('#conteudo-site').html(resposta);					
+				}
+				,error: function(json){
+					console.log(json);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
